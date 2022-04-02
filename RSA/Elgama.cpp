@@ -3,67 +3,87 @@ using namespace std;
 #define ld long
 //TIm nghich dao
 ld ModInv(ld b, ld n){
-  ld r1=n,r2=b,t1=0,t2=1;
-  while(r2>0){
-    ld q=r1/r2;
-    ld r=r1-q*r2;
-    r1=r2;r2=r;
-    ld t=t1-q*t2;
-    t1=t2;t2=t;
+  ld A3=n,B3=b,A2=0,B2=1;
+  while(true){
+    ld q=A3/B3;
+    ld t=A2-q*B2;
+    ld r=A3-q*B3;
+    A2=B2;B2=t;
+    A3=B3;B3=r;
+    if(B3==0)
+    {
+    	return -1;
+	}
+	else if(B3==1){
+		return B2>0?B2:B2+n;
+	}
   }
-  if(t1<0)t1+=n;
-  return t1;
 }
-ld powerLL(ld x, ld n, ld MOD) { 
-	ld result = 1; 
-	while (n) { 
-		if (n&1) 
-			result = result * x % MOD; 
-		n = n / 2; 
-		x = x * x % MOD; 
-	} 
-	return result; 
-} 
+// Tìm Modulo
+ld Modulo(ld a, ld n, ld d)
+{
+	ld r, res;
+//	a=2013;
+//	n=32;
+//	d=7349;
+	res = 1;
+	r = a % d;
+	while (n > 0)
+	{
+		if(n & 1)
+			res = (res * r) % d;
 
-ld powerStrings(string sa, string sb, ld MOD) { 
-
-	ld a = 0, b = 0; 
-	for (int i = 0; i < sa.length(); i++) 
-		a = (a * 10 + (sa[i] - '0')) % MOD; 
-
-	for (int i = 0; i < sb.length(); i++) 
-		b = (b * 10 + (sb[i] - '0')) % (MOD - 1); 
-	return powerLL(a, b, MOD); 
-} 
-
-// Modulo
-
-ld mod(string num, ld a) { 
-	ld res = 0; 
-	for (int i = 0; i < num.length(); i++) 
-		res = (res*10 + (int)num[i] - '0') %a; 
-
-	return res; 
-} 
+		r = (r * r) %d;
+		n >>= 1;
+	}
+	return res;
+}
 
 int main()
 {
-	cin.tie(0); ios::sync_with_stdio(0); cout.tie(0);
-	ld p,e1,d,m,r,MOD;
-  cin>>p>>e1>>d>>m>>r;
-  ld e2,s1,s2,v1,v2,a,b;
-  e2=powerStrings(to_string(e1),to_string(d),p);if(e2<0)e2+=p;
-  s1=powerStrings(to_string(e1),to_string(r),p);if(s1<0)s1+=p;
-  s2=(((m-d*s1)%(p-1))*ModInv(r,p-1))%(p-1);if(s2<0)s2+=(p-1);
-  v1=powerStrings(to_string(e1),to_string(m),p);if(v1<0)v1+=p;
-  a=powerStrings(to_string(e2),to_string(s1),p);if(a<0)a+=p;
-  b=powerStrings(to_string(s1),to_string(s2),p);if(b<0)b+=p;
-  v2=(a*b)%p;
-  cout<<"e2="<<e2<<"\n";
-  cout<<"s1="<<s1<<"\n";
-  cout<<"s2="<<s2<<"\n";
-  cout<<"v1="<<v1<<"\n";
-  cout<<"v2="<<v2<<"\n";
-
+//	cin.tie(0); ios::sync_with_stdio(0); cout.tie(0);
+	//q, a, Xa;
+	ld q, a, Xa;
+	cout<<"Nhap so nguyen to q:";
+	cin>>q;
+	cout<<"Nhap so a la can nguyen thuy cua q:";
+	cin>>a;
+	cout<<"Nhap khoa rieng cua A Xa:";
+	cin>>Xa;
+	cout<<"=====Cau a====="<<endl;
+	//a, PU={q,a, Ya}
+	//+ YA=a^Xa mod q;
+	ld Ya=Modulo(a, Xa, q);
+	cout<<"Khoa cong khai cua A la:"<<endl;
+	cout<<"PU={"<<q<<","<<a<<","<<Ya<<"}"<<endl;
+	cout<<"=====Cau b====="<<endl;
+	ld k, M;
+	//b, MÃ hóa (C1, C2) cho k, M
+	cout<<"Nhap gia tri k:";
+	cin>>k;
+	cout<<"Nhap gia tri M:";
+	cin>>M;
+	//+, K=(Ya)^k mod q;
+	ld K=Modulo(Ya, k, q);
+	cout<<"Gia tri K="<<K<<endl;
+	//+ C1=a^k mod q;
+	ld C1=Modulo(a, k, q);
+	cout<<"Gia tri C1="<<C1<<endl;
+	//+ C2=K*M mod q;
+	ld C2=Modulo(K*M, 1, q);
+	cout<<"Gia tri C2="<<C2<<endl;
+	cout<<"Ban Ma (C1, C2)="<<"("<<C1<<","<<C2<<")"<<endl;
+	
+	//c, Giai ma
+	cout<<"=====Cau c: Giai ma====="<<endl;
+	//+, K=(C1)^Xa mode q;
+	ld K1=Modulo(C1, Xa, q);
+	cout<<"Gia tri K="<<C1<<endl;
+	//+, M=(C2*K^-1) mode q
+	ld M1=Modulo(C2*ModInv(K, q), 1, q);
+	cout<<"Gia tri gia ma M="<<M1<<endl;
+	
+	
+	
 }
 

@@ -1,7 +1,8 @@
 #include<iostream>
 using namespace std;
 string alphabet="abcdefghijklmnopqrstuvwxyz";
-string cipher="dilovfheakgtbyzsmwnurxpqcj";
+string cipher="JEHFAVZNOXUBMYPKDLGSRCTWQI";
+string plaintext="MONEYMAKESTHEMAR";
 int position(char ch)
 {
 	int p;
@@ -41,7 +42,6 @@ string monoalphabeticDecryption(string input)
 }
 int main()
 {
-	string plaintext="Hi! Can You know this message.";
 	cout<<"\nPlaintext: "<<plaintext;
 	string cipher=monoalphabeticEncyption(plaintext);
 	cout<<"\nCiphertext: "<<cipher;

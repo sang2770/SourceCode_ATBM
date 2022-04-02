@@ -1,6 +1,8 @@
 #include<iostream>
 using namespace std;
 string alphabet="abcdefghijklmnopqrstuvwxyz";
+string plaintext="THETRUTHWILLO";
+string key="THEGRASS";
 int position(char ch)
 {
 	int p;
@@ -42,8 +44,7 @@ string AutoKeyDecryption(string cipher, string key)
 }
 int main()
 {
-	string plaintext="wearediscoveredsaveyourself";
-	string key="deceptive";
+	
 	cout<<"\nPlaintext: "<<plaintext<<" "<<plaintext.length();
 	string cipher=AutoKeyEncryption(plaintext,key);
 	cout<<"\nCiphertext: "<<cipher<<" "<<cipher.length();

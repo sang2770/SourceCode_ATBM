@@ -1,18 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
-// Function to return gcd of a and b
-int gcd(int a, int b)
+int phi(int n)
 {
-    if (a == 0)
-        return b;
-    return gcd(b % a, a);
-}
-// A simple method to evaluate Euler Totient Function
-int phi(unsigned int n)
-{
-    unsigned int result = 1;
+    int result = 1;
     for (int i = 2; i < n; i++)
-        if (gcd(i, n) == 1)
+        if (__gcd(i, n) == 1)
             result++;
     return result;
 }
@@ -20,8 +12,9 @@ int main()
 {
 	cin.tie(0); ios::sync_with_stdio(0); cout.tie(0);
 	int n;
-    for (n = 1; n <= 10; n++)
-        cout << "phi("<<n<<") = " << phi(n) << endl;
+	cout<<"Nhap so n:"<<endl;
+	cin>>n;
+	cout << "phi("<<n<<") = " << phi(n) << endl;
     return 0;
 }
 

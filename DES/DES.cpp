@@ -368,11 +368,11 @@ void GiaiMaDES(unsigned int M1, unsigned int M2,
 
 int main()
 {
-	unsigned int M1 = 0x01234567;
-	unsigned int M2 = 0x89ABCDEF;
+	unsigned int M1 = 0x1EDE3CBC;
+	unsigned int M2 = 0xAF288822;
 	
-	unsigned int K1 = 0x13345779; 
-	unsigned int K2 = 0x9BBCDFF1;
+	unsigned int K1 = 0xF35D5147; 
+	unsigned int K2 = 0x14F45A8A;
 	printf("\nKhoa K = "); Show32bit(K1); Show32bit(K2);
 
 	printf("\nBan tin M = "); Show32bit(M1); Show32bit(M2);

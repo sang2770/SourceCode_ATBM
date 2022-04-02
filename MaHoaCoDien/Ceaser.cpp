@@ -1,6 +1,8 @@
 #include<iostream>
 using namespace std;
 string alphabet="abcdefghijklmnopqrstuvwxyz";
+string plaintext="STILLWATERSRUNDE";
+int key=17;
 int position(char ch)
 {
 	int p;
@@ -34,10 +36,9 @@ string CeaserDecryption(string input, int k)
 }
 int main()
 {
-	string plaintext="HiCanYouknowthismessage";
-	cout<<"\nPlaintext: "<<plaintext;
-	int key;
-	cout<<"\nKey: ";cin>>key;
+	cout<<"Plaintext: "<<plaintext<<endl;
+	cout<<"Key: "<<key<<endl;
+//	cin>>key;
 	string cipher=CeaserEncryption(plaintext,key);
 	cout<<"\nCiphertext: "<<cipher;
 	cout<<"\nDecryption: "<<CeaserDecryption(cipher,key);

@@ -1,7 +1,8 @@
 #include<iostream>
 using namespace std;
 string alphabet="abcdefghijklmnopqrstuvwxyz";
-string key="monarchy";
+string plaintext="ACLEANFASTISB";
+string key="EASTO";
 int position(char ch)
 {
 	int p;
@@ -110,7 +111,6 @@ string PlayFairEncryption(string input, string key)
 //}
 int main()
 {
-	string plaintext="hellooneandall";
 	cout<<"\nmatrixKey: "<<CreateMatrixKey(key);
 	cout<<"\nPlaintext: "<<plaintext<<" "<<plaintext.length();
 	string cipher=PlayFairEncryption(plaintext, key);

@@ -1,6 +1,8 @@
 #include<iostream>
 using namespace std;
 string alphabet="abcdefghijklmnopqrstuvwxyz";
+string plaintext="THETRUTHWILLO";
+string key="THEGRASS";
 int position(char ch)
 {
 	int p;
@@ -40,8 +42,7 @@ string VigenerDecryption(string cipher, string key)
 }
 int main()
 {
-	string plaintext="wearediscoveredsaveyourself";
-	string key="dêcptive";
+	
 	cout<<"\nPlaintext: "<<plaintext<<" "<<plaintext.length();
 	string cipher=VigenerEncryption(plaintext,key);
 	cout<<"\nCiphertext: "<<cipher<<" "<<cipher.length();

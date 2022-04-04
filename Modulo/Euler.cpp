@@ -5,7 +5,10 @@ int phi(int n)
     int result = 1;
     for (int i = 2; i < n; i++)
         if (__gcd(i, n) == 1)
-            result++;
+            {
+            	result++;
+            	cout<<i<<endl;
+			}
     return result;
 }
 int main()

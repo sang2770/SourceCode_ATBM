@@ -30,11 +30,10 @@ ld Modulo(ld a, ld n, ld d)
 	r = a % d;
 	while (n > 0)
 	{
-		if(n & 1)
-			res = (res * r) % d;
-
-		r = (r * r) %d;
-		n >>= 1;
+		if(n%2 !=0)
+	 		res = (res * r) % d;
+	 	r = (r * r) %d;
+		n =n/2;
 	}
 	return res;
 }
@@ -78,7 +77,7 @@ int main()
 	cout<<"=====Cau c: Giai ma====="<<endl;
 	//+, K=(C1)^Xa mode q;
 	ld K1=Modulo(C1, Xa, q);
-	cout<<"Gia tri K="<<C1<<endl;
+	cout<<"Gia tri K="<<K1<<endl;
 	//+, M=(C2*K^-1) mode q
 	ld M1=Modulo(C2*ModInv(K, q), 1, q);
 	cout<<"Gia tri gia ma M="<<M1<<endl;

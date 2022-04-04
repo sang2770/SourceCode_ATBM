@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 string alphabet="abcdefghijklmnopqrstuvwxyz";
-string cipher="JEHFAVZNOXUBMYPKDLGSRCTWQI";
+string k="JEHFAVZNOXUBMYPKDLGSRCTWQI";
 string plaintext="MONEYMAKESTHEMAR";
 int position(char ch)
 {
@@ -16,7 +16,7 @@ int *inverseKey(string cipher)
 {
 	int *index=new int[26];
 	for(int i=0; i<26; i++)
-		index[position(cipher[i])]=i;
+		index[position(k[i])]=i;
 	return index;
 }
 string monoalphabeticEncyption(string input)
@@ -25,8 +25,8 @@ string monoalphabeticEncyption(string input)
 	for(char ch:input)
 	{
 		int p=position(ch);
-		ciphertext+=cipher[p];
-	}
+		ciphertext+=k[p];
+	}   
 	return ciphertext;
 }
 string monoalphabeticDecryption(string input)

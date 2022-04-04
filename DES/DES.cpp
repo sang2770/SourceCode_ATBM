@@ -12,6 +12,7 @@ unsigned int getbit28(unsigned C, int i)
 	return (C >> (28 - i)) & 0x01;
 }
 
+
 unsigned int PC1CD(unsigned int K1, unsigned int K2, int first, int last)
 {
 	int pc1[] = {57, 49, 41, 33, 25, 17, 9,

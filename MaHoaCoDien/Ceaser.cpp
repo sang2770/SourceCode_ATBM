@@ -3,7 +3,7 @@ using namespace std;
 string alphabet="abcdefghijklmnopqrstuvwxyz";
 string plaintext="STILLWATERSRUNDE";
 int key=17;
-int position(char ch)
+int                     
 {
 	int p;
 	if(ch>='a'&&ch<='z')
@@ -12,6 +12,7 @@ int position(char ch)
 		p=ch-'A';
 	return p;
 }
+//mã Hóa
 string CeaserEncryption(string input, int k)
 {
 	string cipher="";
@@ -23,6 +24,7 @@ string CeaserEncryption(string input, int k)
 	}
 	return cipher;
 }
+//giai mã
 string CeaserDecryption(string input, int k)
 {
 	string plaintext="";
